@@ -1,0 +1,43 @@
+import { BikeOption } from '../types/bike';
+
+export const bikes: BikeOption[] = [
+  {
+    id: 'bullet',
+    name: 'Royal Bullet',
+    description: 'Classic Indian cruiser. Steady and powerful.',
+    speed: 7,
+    handling: 6,
+    acceleration: 6,
+    imagePath: '/assets/generated/bike-bullet.dim_512x256.png',
+    color: '#1a1a2e',
+    maxSpeed: 120,
+    accelerationRate: 18,
+    turnSpeed: 1.8,
+  },
+  {
+    id: 'sport',
+    name: 'Street Racer',
+    description: 'High-speed sport bike. Fast but tricky to handle.',
+    speed: 10,
+    handling: 5,
+    acceleration: 9,
+    imagePath: '/assets/generated/bike-sport.dim_512x256.png',
+    color: '#ff2200',
+    maxSpeed: 180,
+    accelerationRate: 28,
+    turnSpeed: 1.4,
+  },
+  {
+    id: 'scooter',
+    name: 'City Scooter',
+    description: 'Nimble city scooter. Easy to maneuver in traffic.',
+    speed: 5,
+    handling: 9,
+    acceleration: 7,
+    imagePath: '/assets/generated/bike-scooter.dim_512x256.png',
+    color: '#ff9933',
+    maxSpeed: 90,
+    accelerationRate: 22,
+    turnSpeed: 2.4,
+  },
+];

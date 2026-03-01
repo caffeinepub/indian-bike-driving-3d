@@ -1,0 +1,159 @@
+{
+  "kind": "build_request",
+  "title": "3D Indian Bike Driving Game",
+  "projectName": "Indian Bike Rider 3D",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a 3D bike driving game using React Three Fiber with a third-person camera that follows the player's motorcycle along an Indian-themed road environment. The road should be a long, forward-scrolling highway with lane markings, roadside elements such as trees, buildings, chai stalls, and billboard signs evoking an Indian setting.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Bike game like Indian bike driving 3D"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 3D scene renders with a scrolling road and Indian-themed environment assets",
+        "A third-person camera follows the motorcycle from behind",
+        "The environment loops seamlessly so the road appears endless"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement realistic motorcycle controls: accelerate (W / Up Arrow), brake (S / Down Arrow), steer left (A / Left Arrow), and steer right (D / Right Arrow). The bike should lean visually when turning. On mobile, add on-screen touch buttons for the same controls.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Bike game like Indian bike driving 3D"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Keyboard controls accelerate, brake, and steer the bike",
+        "Bike model visually leans left/right during turns",
+        "On-screen touch buttons appear on mobile/touch devices and replicate keyboard controls"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add AI traffic vehicles (auto-rickshaws, trucks, and cars) driving in the same and opposite lanes. The player must dodge traffic. On collision, the bike slows down and the screen shows a brief impact flash effect.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Bike game like Indian bike driving 3D"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least three types of AI traffic vehicles spawn and move on the road",
+        "Collision with a vehicle triggers a visual impact flash and speed reduction",
+        "Traffic density increases over time as the player's score grows"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a HUD showing current speed (km/h), distance traveled (km), and a live score that increases with distance and near-misses. Show a 'Game Over' screen with final score and a 'Restart' button when the player's health reaches zero after multiple collisions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Bike game like Indian bike driving 3D"
+        ]
+      },
+      "acceptanceCriteria": [
+        "HUD displays speed, distance, and score in real time",
+        "Player has a health bar that decreases on each collision",
+        "Game Over screen appears with final score and functional Restart button when health is zero"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add a bike selection screen before the game starts, offering at least three distinct motorcycle options (e.g., Royal Enfield Bullet style, sport bike, and scooter). Each bike should have different speed and handling stats displayed on the selection card.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Multiple bike options to choose and ride"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A pre-game bike selection screen displays at least three bike options as cards",
+        "Each card shows a 3D or illustrated bike preview, name, and stat bars for speed and handling",
+        "The selected bike loads into the game with its corresponding speed and handling characteristics"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Persist each player's high score on the backend so it survives page refreshes. Provide a simple leaderboard showing the top 10 scores with the player's chosen nickname.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Bike game like Indian bike driving 3D"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores submitted scores with a player nickname",
+        "Top 10 scores are retrievable and displayed on a leaderboard screen",
+        "A new high score is saved when the player submits their name after Game Over"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Apply a vibrant, sun-baked Indian aesthetic throughout the UI: warm saffron, dusty terracotta, and cream color palette, bold Hindi-inspired decorative typography for headings, and subtle paisley/mandala border accents on menus and HUD panels. Enforce this theme consistently across the bike selection screen, HUD, leaderboard, and Game Over screen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Bike game like Indian bike driving 3D"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette uses saffron, terracotta, and cream tones site-wide",
+        "Headings use a bold decorative font evoking Indian signage",
+        "Mandala or paisley accent elements appear on menu and HUD borders"
+      ]
+    }
+  ],
+  "constraints": [
+    "All 3D rendering must use React Three Fiber / Three.js; no external 3D engine or WebGL framework",
+    "All game state and scores must be stored in the Motoko single-actor backend; no external databases",
+    "No real-money or payment features"
+  ],
+  "nonGoals": [
+    "Multiplayer or real-time online racing",
+    "Augmented reality or GPS-based location features",
+    "In-app purchases or monetization",
+    "Native mobile app (iOS/Android)"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Sun-baked Indian highway background panorama with dust haze, distant mountains, and roadside palm trees (road-bg.dim_1920x600.png)",
+      "Bike selection screen background with colorful Indian festival decoration and marigold garland border (bike-select-bg.dim_1920x1080.png)",
+      "Game Over / title screen background with a vivid Indian sunset sky over a straight highway (gameover-bg.dim_1920x1080.png)",
+      "Mandala decorative border tile for UI panels (mandala-border.dim_256x256.png)",
+      "Royal Enfield Bullet-style motorcycle side-view illustration (bike-bullet.dim_512x256.png)",
+      "Sport street motorcycle side-view illustration (bike-sport.dim_512x256.png)",
+      "Scooter side-view illustration (bike-scooter.dim_512x256.png)",
+      "Auto-rickshaw side-view illustration for traffic (traffic-rickshaw.dim_256x256.png)",
+      "Colorful Indian truck side-view illustration for traffic (traffic-truck.dim_512x256.png)"
+    ],
+    "edits": []
+  }
+}

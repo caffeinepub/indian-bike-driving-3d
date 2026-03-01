@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Baloo+2:wght@400;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Indian-themed color palette */
+    --background: 0.97 0.02 85;
+    --foreground: 0.18 0.05 30;
+    --card: 0.99 0.01 80;
+    --card-foreground: 0.18 0.05 30;
+    --popover: 0.99 0.01 80;
+    --popover-foreground: 0.18 0.05 30;
+
+    /* Saffron primary */
+    --primary: 0.72 0.18 55;
+    --primary-foreground: 0.99 0.01 80;
+
+    /* Terracotta secondary */
+    --secondary: 0.62 0.14 35;
+    --secondary-foreground: 0.99 0.01 80;
+
+    --muted: 0.93 0.03 75;
+    --muted-foreground: 0.45 0.05 40;
+
+    /* Deep saffron accent */
+    --accent: 0.78 0.2 60;
+    --accent-foreground: 0.18 0.05 30;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0.01 80;
+
+    --border: 0.88 0.05 65;
+    --input: 0.88 0.05 65;
+    --ring: 0.72 0.18 55;
+
+    --chart-1: 0.72 0.18 55;
+    --chart-2: 0.62 0.14 35;
+    --chart-3: 0.55 0.22 25;
+    --chart-4: 0.78 0.2 60;
+    --chart-5: 0.45 0.1 200;
+
+    --sidebar: 0.97 0.02 85;
+    --sidebar-foreground: 0.18 0.05 30;
+    --sidebar-primary: 0.72 0.18 55;
+    --sidebar-primary-foreground: 0.99 0.01 80;
+    --sidebar-accent: 0.93 0.03 75;
+    --sidebar-accent-foreground: 0.18 0.05 30;
+    --sidebar-border: 0.88 0.05 65;
+    --sidebar-ring: 0.72 0.18 55;
+  }
+
+  .dark {
+    --background: 0.15 0.04 30;
+    --foreground: 0.97 0.02 85;
+    --card: 0.2 0.05 30;
+    --card-foreground: 0.97 0.02 85;
+    --popover: 0.2 0.05 30;
+    --popover-foreground: 0.97 0.02 85;
+    --primary: 0.72 0.18 55;
+    --primary-foreground: 0.15 0.04 30;
+    --secondary: 0.62 0.14 35;
+    --secondary-foreground: 0.97 0.02 85;
+    --muted: 0.25 0.04 30;
+    --muted-foreground: 0.65 0.05 60;
+    --accent: 0.78 0.2 60;
+    --accent-foreground: 0.15 0.04 30;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.97 0.02 85;
+    --border: 0.3 0.05 35;
+    --input: 0.3 0.05 35;
+    --ring: 0.72 0.18 55;
+    --sidebar: 0.2 0.05 30;
+    --sidebar-foreground: 0.97 0.02 85;
+    --sidebar-primary: 0.72 0.18 55;
+    --sidebar-primary-foreground: 0.15 0.04 30;
+    --sidebar-accent: 0.25 0.04 30;
+    --sidebar-accent-foreground: 0.97 0.02 85;
+    --sidebar-border: 0.3 0.05 35;
+    --sidebar-ring: 0.72 0.18 55;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+  }
+}
+
+@layer utilities {
+  .font-game {
+    font-family: 'Baloo 2', cursive;
+  }
+
+  .font-body {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .mandala-border {
+    border-image: url('/assets/generated/mandala-border.dim_256x256.png') 30 round;
+    border-width: 8px;
+    border-style: solid;
+  }
+
+  .text-shadow-saffron {
+    text-shadow: 0 2px 8px rgba(255, 153, 51, 0.6), 0 0 20px rgba(255, 153, 51, 0.3);
+  }
+
+  .text-shadow-dark {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .game-panel {
+    background: linear-gradient(135deg, rgba(30, 15, 5, 0.92), rgba(60, 25, 5, 0.88));
+    border: 2px solid rgba(255, 153, 51, 0.5);
+    backdrop-filter: blur(8px);
+  }
+
+  .btn-saffron {
+    background: linear-gradient(135deg, #ff9933, #e67300);
+    color: white;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    border: 2px solid rgba(255, 200, 100, 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .btn-saffron:hover {
+    background: linear-gradient(135deg, #ffaa44, #ff8800);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.5);
+  }
+
+  .btn-saffron:active {
+    transform: translateY(0);
+  }
+}

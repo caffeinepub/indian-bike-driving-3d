@@ -1,0 +1,244 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "3D Indian Bike Driving Game - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a 3D bike driving game using React Three Fiber with a third-person camera that follows the player's motorcycle along an Indian-themed road environment",
+      "acceptanceCriteria": [
+        "A 3D scene renders with a scrolling road and Indian-themed environment assets",
+        "A third-person camera follows the motorcycle from behind",
+        "The environment loops seamlessly so the road appears endless"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/game/GameScene.tsx",
+          "operation": "create",
+          "description": "Create the main 3D game scene component using React Three Fiber. Set up Canvas with a third-person camera that follows the motorcycle. Include lighting (ambient and directional for sun-baked effect). Render the Road, Motorcycle, Environment, and Traffic components. Use the generated image frontend/public/assets/generated/road-bg.dim_1920x600.png as a skybox or backdrop texture for the Indian highway setting."
+        },
+        {
+          "path": "frontend/src/components/game/Road.tsx",
+          "operation": "create",
+          "description": "Create an infinite scrolling road component with lane markings using Three.js geometries and materials. Implement seamless looping by repositioning road segments as they move past the camera. Apply a repeating texture or procedural patterns for asphalt and lane lines."
+        },
+        {
+          "path": "frontend/src/components/game/Environment.tsx",
+          "operation": "create",
+          "description": "Create roadside environment assets including trees, buildings, chai stalls, and billboard signs using simple 3D primitives or low-poly meshes. Position these assets along the road sides and loop them in sync with the road. Incorporate Indian-themed visual elements such as colorful signage and palm trees."
+        },
+        {
+          "path": "frontend/src/components/game/Motorcycle.tsx",
+          "operation": "create",
+          "description": "Create the player's motorcycle 3D model using simple geometries or a low-poly mesh. Position it in the center of the road. Implement visual leaning (rotation on Z-axis) based on steering input. Accept props for the selected bike type and apply corresponding visual differences."
+        },
+        {
+          "path": "frontend/src/components/game/ThirdPersonCamera.tsx",
+          "operation": "create",
+          "description": "Create a custom camera controller that follows the motorcycle from behind at a fixed offset. Use useFrame hook to update camera position and lookAt target each frame to track the bike smoothly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement realistic motorcycle controls with keyboard and mobile touch buttons",
+      "acceptanceCriteria": [
+        "Keyboard controls accelerate, brake, and steer the bike",
+        "Bike model visually leans left/right during turns",
+        "On-screen touch buttons appear on mobile/touch devices and replicate keyboard controls"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useMotorcycleControls.ts",
+          "operation": "create",
+          "description": "Create a custom hook that listens to keyboard events (W/Up for accelerate, S/Down for brake, A/Left and D/Right for steering) and manages control state (acceleration, braking, steering direction). Return the current control state for use in the Motorcycle component."
+        },
+        {
+          "path": "frontend/src/components/game/Motorcycle.tsx",
+          "operation": "modify",
+          "description": "Integrate useMotorcycleControls hook. Apply acceleration and braking to motorcycle speed. Apply steering to rotation and compute lean angle (Z-axis rotation) based on steering input. Use useFrame to update position and rotation each frame."
+        },
+        {
+          "path": "frontend/src/components/game/TouchControls.tsx",
+          "operation": "create",
+          "description": "Create on-screen touch control buttons for mobile devices: buttons for accelerate, brake, steer left, and steer right. Use touch event handlers to update the same control state as keyboard controls. Show these controls only on touch-enabled devices. Style buttons with Indian-themed colors (saffron, terracotta)."
+        },
+        {
+          "path": "frontend/src/components/game/GameScene.tsx",
+          "operation": "modify",
+          "description": "Include TouchControls component in the game UI overlay so it appears on top of the 3D Canvas."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add AI traffic vehicles (auto-rickshaws, trucks, and cars) with collision detection",
+      "acceptanceCriteria": [
+        "At least three types of AI traffic vehicles spawn and move on the road",
+        "Collision with a vehicle triggers a visual impact flash and speed reduction",
+        "Traffic density increases over time as the player's score grows"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/game/Traffic.tsx",
+          "operation": "create",
+          "description": "Create AI traffic vehicles component. Spawn auto-rickshaws, trucks, and cars at random intervals in same and opposite lanes. Each vehicle type uses simple 3D geometry or low-poly meshes. Move vehicles forward (or backward for oncoming traffic) at fixed speeds. Use the generated images frontend/public/assets/generated/traffic-rickshaw.dim_256x256.png and frontend/public/assets/generated/traffic-truck.dim_512x256.png as textures on billboards or sprite planes for traffic vehicle visual representation. Remove vehicles when they pass out of view and reuse them. Increase spawn rate based on player score passed as prop."
+        },
+        {
+          "path": "frontend/src/hooks/useCollisionDetection.ts",
+          "operation": "create",
+          "description": "Create a custom hook that performs bounding box collision detection between the player motorcycle and traffic vehicles. Accept arrays of vehicle positions and the motorcycle position. Return an array of collision events. Use simple distance-based or AABB collision logic."
+        },
+        {
+          "path": "frontend/src/components/game/GameScene.tsx",
+          "operation": "modify",
+          "description": "Integrate useCollisionDetection hook to detect collisions between the motorcycle and traffic. On collision, trigger a visual impact flash effect (e.g., brief white overlay or screen shake), reduce motorcycle speed, and decrement player health. Pass current score to Traffic component to increase density over time."
+        },
+        {
+          "path": "frontend/src/components/game/ImpactFlash.tsx",
+          "operation": "create",
+          "description": "Create a visual impact flash overlay component that displays a brief white or red semi-transparent flash when a collision occurs. Trigger it via a prop or state update from GameScene."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement HUD with speed, distance, score, health bar, and Game Over screen",
+      "acceptanceCriteria": [
+        "HUD displays speed, distance, and score in real time",
+        "Player has a health bar that decreases on each collision",
+        "Game Over screen appears with final score and functional Restart button when health is zero"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/game/HUD.tsx",
+          "operation": "create",
+          "description": "Create a heads-up display component that overlays the 3D scene. Display current speed in km/h, distance traveled in km, and live score. Include a health bar visual (e.g., segmented or gradient bar). Style with Indian-themed colors and apply mandala border accents using the generated image frontend/public/assets/generated/mandala-border.dim_256x256.png as a decorative border tile. Accept props for speed, distance, score, and health values."
+        },
+        {
+          "path": "frontend/src/components/game/GameOver.tsx",
+          "operation": "create",
+          "description": "Create a Game Over screen component that displays the final score, a congratulatory or game-over message, and a Restart button. Include an input field for the player to enter their nickname to submit their score to the leaderboard. Use the generated image frontend/public/assets/generated/gameover-bg.dim_1920x1080.png as the background. Style with Indian-themed typography and colors. On Restart, reset game state and return to the bike selection or game start."
+        },
+        {
+          "path": "frontend/src/hooks/useGameState.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage game state including speed, distance, score, health, and game status (playing, gameOver). Provide functions to update these values (incrementScore, decrementHealth, resetGame). Export state and updater functions."
+        },
+        {
+          "path": "frontend/src/components/game/GameScene.tsx",
+          "operation": "modify",
+          "description": "Integrate useGameState hook. Pass state values to HUD component. When health reaches zero, transition to Game Over screen by conditionally rendering GameOver component instead of the 3D Canvas and HUD."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add a bike selection screen offering at least three distinct motorcycle options",
+      "acceptanceCriteria": [
+        "A pre-game bike selection screen displays at least three bike options as cards",
+        "Each card shows a 3D or illustrated bike preview, name, and stat bars for speed and handling",
+        "The selected bike loads into the game with its corresponding speed and handling characteristics"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BikeSelectionScreen.tsx",
+          "operation": "create",
+          "description": "Create a bike selection screen component displaying three bike options: Royal Enfield Bullet style, sport bike, and scooter. Each option is shown as a card with an illustrated preview using the generated images frontend/public/assets/generated/bike-bullet.dim_512x256.png, frontend/public/assets/generated/bike-sport.dim_512x256.png, and frontend/public/assets/generated/bike-scooter.dim_512x256.png. Display bike name, speed stat bar, and handling stat bar on each card. On selection, pass the chosen bike's stats to the game and navigate to the game scene. Use the generated image frontend/public/assets/generated/bike-select-bg.dim_1920x1080.png as the background. Style with Indian-themed colors and decorative typography."
+        },
+        {
+          "path": "frontend/src/types/bike.ts",
+          "operation": "create",
+          "description": "Define TypeScript types for bike data including id, name, speed, handling, and image path. Export BikeOption type."
+        },
+        {
+          "path": "frontend/src/data/bikes.ts",
+          "operation": "create",
+          "description": "Define an array of bike options with stat values for Royal Enfield Bullet (balanced), sport bike (high speed, lower handling), and scooter (lower speed, high handling). Export the bikes array."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add routing or conditional rendering to show BikeSelectionScreen as the first screen when the app loads. After bike selection, render the GameScene with the selected bike passed as a prop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Persist high scores on the backend and display a leaderboard",
+      "acceptanceCriteria": [
+        "Backend stores submitted scores with a player nickname",
+        "Top 10 scores are retrievable and displayed on a leaderboard screen",
+        "A new high score is saved when the player submits their name after Game Over"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useSubmitScore.ts",
+          "operation": "create",
+          "description": "Create a custom hook using React Query mutation to call the backend submitScore method with the player's nickname and score. Handle loading and error states. The authorization component is required for this feature, as users must be authenticated to submit scores. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useLeaderboard.ts",
+          "operation": "create",
+          "description": "Create a custom hook using React Query to fetch the top 10 scores from the backend getLeaderboard method. Return the leaderboard data, loading, and error states."
+        },
+        {
+          "path": "frontend/src/components/game/GameOver.tsx",
+          "operation": "modify",
+          "description": "Integrate useSubmitScore hook. When the player enters their nickname and clicks submit, call the mutation to save the score. Display feedback (success or error message) after submission. Ensure the user is authenticated before allowing score submission (use the authorization component to handle login if needed)."
+        },
+        {
+          "path": "frontend/src/components/LeaderboardScreen.tsx",
+          "operation": "create",
+          "description": "Create a leaderboard screen component that uses useLeaderboard hook to fetch and display the top 10 scores with player nicknames. Style as a table or list with rank, nickname, and score columns. Apply Indian-themed styling with mandala border accents using frontend/public/assets/generated/mandala-border.dim_256x256.png. Include a back button to return to the main menu or bike selection screen."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a navigation link or button in the main menu to access the LeaderboardScreen. Ensure proper routing or conditional rendering to show the leaderboard when requested."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Apply a vibrant, sun-baked Indian aesthetic throughout the UI",
+      "acceptanceCriteria": [
+        "Color palette uses saffron, terracotta, and cream tones site-wide",
+        "Headings use a bold decorative font evoking Indian signage",
+        "Mandala or paisley accent elements appear on menu and HUD borders"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define CSS custom properties for the Indian-themed color palette: saffron (#FF9933), dusty terracotta (#D2691E), cream (#FFF8DC), and complementary shades. Import a bold decorative font (e.g., Google Fonts Hindi-inspired or decorative serif) and apply it to heading elements (h1, h2, h3). Add utility classes for mandala/paisley borders."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors for saffron, terracotta, and cream. Configure custom font family for the decorative headings. Add background image utilities for mandala border tiles using frontend/public/assets/generated/mandala-border.dim_256x256.png."
+        },
+        {
+          "path": "frontend/src/components/game/HUD.tsx",
+          "operation": "modify",
+          "description": "Apply Indian-themed colors and decorative typography to HUD elements. Use mandala border tile image frontend/public/assets/generated/mandala-border.dim_256x256.png as a repeating border around HUD panels."
+        },
+        {
+          "path": "frontend/src/components/BikeSelectionScreen.tsx",
+          "operation": "modify",
+          "description": "Apply Indian-themed colors, decorative font for headings, and mandala border accents to bike selection cards and layout. Ensure background image frontend/public/assets/generated/bike-select-bg.dim_1920x1080.png is properly displayed."
+        },
+        {
+          "path": "frontend/src/components/game/GameOver.tsx",
+          "operation": "modify",
+          "description": "Apply Indian-themed colors, decorative typography, and mandala border accents. Ensure background image frontend/public/assets/generated/gameover-bg.dim_1920x1080.png is properly displayed."
+        },
+        {
+          "path": "frontend/src/components/LeaderboardScreen.tsx",
+          "operation": "modify",
+          "description": "Apply Indian-themed colors, decorative font for headings, and mandala border accents to the leaderboard table and layout."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-3d-bike-driving-game-using-react-three-fiber-with-a-third-person-camera-that-follows-the-player-s-motorcycle-along-an-indian-themed-road-environment-the-road-should-be-a-long-forward-scrolling-highway-with-lane-markings-roadside-elements-such-as-trees-buildings-chai-stalls-and-billboard-signs-evoking-an-indian-setting",
+      "featureTitle": "Create a 3D bike driving game using React Three Fiber with a third-person camera that follows the player's motorcycle along an Indian-themed road environment. The road should be a long, forward-scrolling highway with lane markings, roadside elements such as trees, buildings, chai stalls, and billboard signs evoking an Indian setting.",
+      "files": [
+        "frontend/src/components/game/Environment.tsx",
+        "frontend/src/components/game/GameScene.tsx",
+        "frontend/src/components/game/Motorcycle.tsx",
+        "frontend/src/components/game/Road.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-realistic-motorcycle-controls-accelerate-w-up-arrow-brake-s-down-arrow-steer-left-a-left-arrow-and-steer-right-d-right-arrow-the-bike-should-lean-visually-when-turning-on-mobile-add-on-screen-touch-buttons-for-the-same-controls",
+      "featureTitle": "Implement realistic motorcycle controls: accelerate (W / Up Arrow), brake (S / Down Arrow), steer left (A / Left Arrow), and steer right (D / Right Arrow). The bike should lean visually when turning. On mobile, add on-screen touch buttons for the same controls.",
+      "files": [
+        "frontend/src/components/game/GameScene.tsx",
+        "frontend/src/components/game/Motorcycle.tsx",
+        "frontend/src/components/game/TouchControls.tsx",
+        "frontend/src/hooks/useMotorcycleControls.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-ai-traffic-vehicles-auto-rickshaws-trucks-and-cars-driving-in-the-same-and-opposite-lanes-the-player-must-dodge-traffic-on-collision-the-bike-slows-down-and-the-screen-shows-a-brief-impact-flash-effect",
+      "featureTitle": "Add AI traffic vehicles (auto-rickshaws, trucks, and cars) driving in the same and opposite lanes. The player must dodge traffic. On collision, the bike slows down and the screen shows a brief impact flash effect.",
+      "files": [
+        "frontend/src/components/game/GameScene.tsx",
+        "frontend/src/components/game/ImpactFlash.tsx",
+        "frontend/src/components/game/Traffic.tsx",
+        "frontend/src/hooks/useCollisionDetection.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-hud-showing-current-speed-km-h-distance-traveled-km-and-a-live-score-that-increases-with-distance-and-near-misses-show-a-game-over-screen-with-final-score-and-a-restart-button-when-the-player-s-health-reaches-zero-after-multiple-collisions",
+      "featureTitle": "Implement a HUD showing current speed (km/h), distance traveled (km), and a live score that increases with distance and near-misses. Show a 'Game Over' screen with final score and a 'Restart' button when the player's health reaches zero after multiple collisions.",
+      "files": [
+        "frontend/src/components/game/GameOver.tsx",
+        "frontend/src/components/game/GameScene.tsx",
+        "frontend/src/components/game/HUD.tsx",
+        "frontend/src/hooks/useGameState.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-bike-selection-screen-before-the-game-starts-offering-at-least-three-distinct-motorcycle-options-e-g-royal-enfield-bullet-style-sport-bike-and-scooter-each-bike-should-have-different-speed-and-handling-stats-displayed-on-the-selection-card",
+      "featureTitle": "Add a bike selection screen before the game starts, offering at least three distinct motorcycle options (e.g., Royal Enfield Bullet style, sport bike, and scooter). Each bike should have different speed and handling stats displayed on the selection card.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BikeSelectionScreen.tsx",
+        "frontend/src/data/bikes.ts",
+        "frontend/src/types/bike.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-persist-each-player-s-high-score-on-the-backend-so-it-survives-page-refreshes-provide-a-simple-leaderboard-showing-the-top-10-scores-with-the-player-s-chosen-nickname",
+      "featureTitle": "Persist each player's high score on the backend so it survives page refreshes. Provide a simple leaderboard showing the top 10 scores with the player's chosen nickname.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/LeaderboardScreen.tsx",
+        "frontend/src/components/game/GameOver.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-vibrant-sun-baked-indian-aesthetic-throughout-the-ui-warm-saffron-dusty-terracotta-and-cream-color-palette-bold-hindi-inspired-decorative-typography-for-headings-and-subtle-paisley-mandala-border-accents-on-menus-and-hud-panels-enforce-this-theme-consistently-across-the-bike-selection-screen-hud-leaderboard-and-game-over-screen",
+      "featureTitle": "Apply a vibrant, sun-baked Indian aesthetic throughout the UI: warm saffron, dusty terracotta, and cream color palette, bold Hindi-inspired decorative typography for headings, and subtle paisley/mandala border accents on menus and HUD panels. Enforce this theme consistently across the bike selection screen, HUD, leaderboard, and Game Over screen.",
+      "files": [
+        "frontend/src/components/BikeSelectionScreen.tsx",
+        "frontend/src/components/LeaderboardScreen.tsx",
+        "frontend/src/components/game/GameOver.tsx",
+        "frontend/src/components/game/HUD.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

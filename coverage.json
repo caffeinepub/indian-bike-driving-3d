@@ -1,0 +1,266 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-01T15:11:50.839Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 7,
+    "implemented": 7,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create a 3D bike driving game using React Three Fiber with a third-person camera that follows the player's motorcycle along an Indian-themed road environment. The road should be a long, forward-scrolling highway with lane markings, roadside elements such as trees, buildings, chai stalls, and billboard signs evoking an Indian setting.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/game/GameScene.tsx",
+          "frontend/src/components/game/Road.tsx",
+          "frontend/src/components/game/Environment.tsx",
+          "frontend/src/components/game/Motorcycle.tsx",
+          "frontend/src/components/game/ThirdPersonCamera.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/game/GameScene.tsx",
+          "frontend/src/components/game/Road.tsx",
+          "frontend/src/components/game/Environment.tsx",
+          "frontend/src/components/game/Motorcycle.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement realistic motorcycle controls: accelerate (W / Up Arrow), brake (S / Down Arrow), steer left (A / Left Arrow), and steer right (D / Right Arrow). The bike should lean visually when turning. On mobile, add on-screen touch buttons for the same controls.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useMotorcycleControls.ts",
+          "frontend/src/components/game/Motorcycle.tsx",
+          "frontend/src/components/game/TouchControls.tsx",
+          "frontend/src/components/game/GameScene.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useMotorcycleControls.ts",
+          "frontend/src/components/game/Motorcycle.tsx",
+          "frontend/src/components/game/TouchControls.tsx",
+          "frontend/src/components/game/GameScene.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add AI traffic vehicles (auto-rickshaws, trucks, and cars) driving in the same and opposite lanes. The player must dodge traffic. On collision, the bike slows down and the screen shows a brief impact flash effect.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/game/Traffic.tsx",
+          "frontend/src/hooks/useCollisionDetection.ts",
+          "frontend/src/components/game/GameScene.tsx",
+          "frontend/src/components/game/ImpactFlash.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/game/Traffic.tsx",
+          "frontend/src/hooks/useCollisionDetection.ts",
+          "frontend/src/components/game/GameScene.tsx",
+          "frontend/src/components/game/ImpactFlash.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement a HUD showing current speed (km/h), distance traveled (km), and a live score that increases with distance and near-misses. Show a 'Game Over' screen with final score and a 'Restart' button when the player's health reaches zero after multiple collisions.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/game/HUD.tsx",
+          "frontend/src/components/game/GameOver.tsx",
+          "frontend/src/hooks/useGameState.ts",
+          "frontend/src/components/game/GameScene.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/game/HUD.tsx",
+          "frontend/src/components/game/GameOver.tsx",
+          "frontend/src/hooks/useGameState.ts",
+          "frontend/src/components/game/GameScene.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Add a bike selection screen before the game starts, offering at least three distinct motorcycle options (e.g., Royal Enfield Bullet style, sport bike, and scooter). Each bike should have different speed and handling stats displayed on the selection card.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/BikeSelectionScreen.tsx",
+          "frontend/src/types/bike.ts",
+          "frontend/src/data/bikes.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/BikeSelectionScreen.tsx",
+          "frontend/src/types/bike.ts",
+          "frontend/src/data/bikes.ts",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Persist each player's high score on the backend so it survives page refreshes. Provide a simple leaderboard showing the top 10 scores with the player's chosen nickname.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useSubmitScore.ts",
+          "frontend/src/hooks/useLeaderboard.ts",
+          "frontend/src/components/game/GameOver.tsx",
+          "frontend/src/components/LeaderboardScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/game/GameOver.tsx",
+          "frontend/src/components/LeaderboardScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Apply a vibrant, sun-baked Indian aesthetic throughout the UI: warm saffron, dusty terracotta, and cream color palette, bold Hindi-inspired decorative typography for headings, and subtle paisley/mandala border accents on menus and HUD panels. Enforce this theme consistently across the bike selection screen, HUD, leaderboard, and Game Over screen.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/game/HUD.tsx",
+          "frontend/src/components/BikeSelectionScreen.tsx",
+          "frontend/src/components/game/GameOver.tsx",
+          "frontend/src/components/LeaderboardScreen.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/game/HUD.tsx",
+          "frontend/src/components/BikeSelectionScreen.tsx",
+          "frontend/src/components/game/GameOver.tsx",
+          "frontend/src/components/LeaderboardScreen.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/bike-bullet.dim_512x256.png",
+    "frontend/public/assets/generated/bike-scooter.dim_512x256.png",
+    "frontend/public/assets/generated/bike-select-bg.dim_1920x1080.png",
+    "frontend/public/assets/generated/bike-sport.dim_512x256.png",
+    "frontend/public/assets/generated/gameover-bg.dim_1920x1080.png",
+    "frontend/public/assets/generated/mandala-border.dim_256x256.png",
+    "frontend/public/assets/generated/road-bg.dim_1920x600.png",
+    "frontend/public/assets/generated/traffic-rickshaw.dim_256x256.png",
+    "frontend/public/assets/generated/traffic-truck.dim_512x256.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/BikeSelectionScreen.tsx",
+    "frontend/src/components/LeaderboardScreen.tsx",
+    "frontend/src/components/game/Environment.tsx",
+    "frontend/src/components/game/GameOver.tsx",
+    "frontend/src/components/game/GameScene.tsx",
+    "frontend/src/components/game/HUD.tsx",
+    "frontend/src/components/game/ImpactFlash.tsx",
+    "frontend/src/components/game/Motorcycle.tsx",
+    "frontend/src/components/game/Road.tsx",
+    "frontend/src/components/game/TouchControls.tsx",
+    "frontend/src/components/game/Traffic.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/data/bikes.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useCollisionDetection.ts",
+    "frontend/src/hooks/useGameState.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useMotorcycleControls.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/types/bike.ts",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

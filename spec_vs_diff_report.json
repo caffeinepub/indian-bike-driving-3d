@@ -1,0 +1,83 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-01T15:11:50.836Z",
+  "summary": "The diff implements most of the required features for the 3D Indian Bike Driving Game. All major requirements are addressed: 3D environment with React Three Fiber, motorcycle controls, AI traffic, HUD, bike selection, backend leaderboard, and Indian aesthetic. However, there are some gaps particularly around near-miss score bonuses and traffic density scaling with score.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Traffic density increases over time as the player's score grows",
+      "reason": "The Traffic component receives a score prop, but the truncated diff does not show logic that increases spawn rate or vehicle density as score grows. The actual density scaling implementation is not visible in the provided diff.",
+      "evidence": [
+        "frontend/src/components/game/Traffic.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Live score increases with distance AND near-misses",
+      "reason": "In GameScene/GameLogic, the score only increments based on speed/distance (scoreRef.current += speedKmh * delta * 0.5). There is no near-miss detection or bonus score for passing close to traffic without collision.",
+      "evidence": [
+        "frontend/src/components/game/GameScene.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity (ICP) authentication integration for score submission",
+      "reason": "The build request only requires persisting scores with a player nickname. The diff adds Internet Identity login as a prerequisite for submitting scores, which was not requested.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/components/game/GameOver.tsx",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Access control and authorization system (MixinAuthorization, AccessControl) on the backend",
+      "reason": "The build request only requires storing and retrieving scores. The backend implements a full authorization and access-control system with admin roles and permission checks that was not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "User profile system (UserProfile, saveCallerUserProfile, getCallerUserProfile) on the backend",
+      "reason": "The build request only requires storing scores with nicknames. A separate UserProfile storage and retrieval system was not requested.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/BikeSelectionScreen.tsx",
+    "frontend/src/components/LeaderboardScreen.tsx",
+    "frontend/src/components/game/Environment.tsx",
+    "frontend/src/components/game/GameOver.tsx",
+    "frontend/src/components/game/GameScene.tsx",
+    "frontend/src/components/game/HUD.tsx",
+    "frontend/src/components/game/ImpactFlash.tsx",
+    "frontend/src/components/game/Motorcycle.tsx",
+    "frontend/src/components/game/Road.tsx",
+    "frontend/src/components/game/TouchControls.tsx",
+    "frontend/src/components/game/Traffic.tsx",
+    "frontend/src/data/bikes.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useCollisionDetection.ts",
+    "frontend/src/hooks/useGameState.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useMotorcycleControls.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/types/bike.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

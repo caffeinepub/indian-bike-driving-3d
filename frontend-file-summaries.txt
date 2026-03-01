@@ -1,0 +1,22 @@
+{
+  "frontend/src/index.css": "Global styles with Indian-themed OKLCH color palette (saffron, terracotta, cream), Google Fonts imports for Baloo 2 and Rajdhani, and utility classes for game panels, mandala borders, and saffron buttons.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Indian theme colors (saffron, terracotta, cream, india), custom game/body/hindi font families, saffron shadow utilities, mandala background image, and game-specific animations.",
+  "frontend/src/types/bike.ts": "TypeScript interface defining BikeOption with id, name, stats (speed, handling, acceleration), image path, color, and physics parameters (maxSpeed, accelerationRate, turnSpeed).",
+  "frontend/src/data/bikes.ts": "Array of three bike options (Royal Bullet, Street Racer, City Scooter) with distinct stat values and physics parameters for varied gameplay.",
+  "frontend/src/hooks/useMotorcycleControls.ts": "Custom hook managing keyboard input (WASD/Arrow keys) for motorcycle controls using a shared mutable ref pattern to avoid re-renders, with exported setControl for touch input.",
+  "frontend/src/hooks/useGameState.ts": "Custom hook managing all game state (status, speed, distance, score, health) with refs for performance-critical updates and callbacks for state transitions.",
+  "frontend/src/hooks/useCollisionDetection.ts": "Custom hook implementing AABB bounding box collision detection between the player bike and traffic vehicles, with per-vehicle cooldown to prevent rapid repeated collisions.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations: fetching user profile, saving profile, getting/submitting scores, and fetching the leaderboard.",
+  "frontend/src/components/game/Road.tsx": "Infinite scrolling road component with 4 looping segments, canvas-generated asphalt texture with lane markings, shoulders, and curbs that scroll based on player speed.",
+  "frontend/src/components/game/Environment.tsx": "Roadside environment with 4 looping segments containing procedurally placed palm trees, trees, buildings, chai stalls, billboards, and street lamps with Indian-themed styling.",
+  "frontend/src/components/game/Motorcycle.tsx": "Player motorcycle 3D model built from Three.js primitives with visual lean on steering, rider silhouette, headlight glow, and physics-based movement using useFrame.",
+  "frontend/src/components/game/Traffic.tsx": "AI traffic system spawning rickshaws, trucks, and cars in random lanes with same/oncoming directions, increasing density with score, and providing vehicle data for collision detection.",
+  "frontend/src/components/game/ImpactFlash.tsx": "Visual impact flash overlay component that shows a radial red/orange gradient flash effect when a collision occurs, with fade-out animation.",
+  "frontend/src/components/game/HUD.tsx": "Heads-up display overlay showing speed (km/h), distance (km), score, and segmented health bar with Indian-themed styling and mandala border accents.",
+  "frontend/src/components/game/TouchControls.tsx": "On-screen touch control buttons for mobile devices (accelerate, brake, steer left/right) using the shared control state, only rendered on touch-enabled devices.",
+  "frontend/src/components/game/GameScene.tsx": "Main 3D game scene using React Three Fiber Canvas with Sky, lighting, Road, Environment, Motorcycle, Traffic, follow camera, and game logic components, plus HUD/flash/touch overlays.",
+  "frontend/src/components/BikeSelectionScreen.tsx": "Bike selection screen with background image, three bike cards showing images and stat bars, start/leaderboard buttons, and Indian-themed styling with mandala accents.",
+  "frontend/src/components/game/GameOver.tsx": "Game over screen with final score/distance stats, score submission form with Internet Identity login, and navigation buttons for restart/leaderboard/menu.",
+  "frontend/src/components/LeaderboardScreen.tsx": "Leaderboard screen fetching and displaying top 10 scores from the backend with rank medals, Indian-themed styling, and mandala border accents.",
+  "frontend/src/App.tsx": "Main app component managing game flow state machine (menu → selecting → playing → gameover → leaderboard) with conditional rendering of all screens and game state callbacks."
+}

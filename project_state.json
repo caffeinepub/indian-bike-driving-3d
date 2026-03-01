@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A 3D Indian bike driving game where the player rides a motorcycle through Indian environments, with realistic bike controls and traffic.",
+  "architectural_notes": [
+    "3D game built with Three.js or Babylon.js for rendering",
+    "Physics-based bike controls with lean and balance mechanics"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Sun-baked Indian highway background panorama with dust haze, distant mountains, and roadside palm trees (road-bg.dim_1920x600.png)\n- Bike selection screen background with colorful Indian festival decoration and marigold garland border (bike-select-bg.dim_1920x1080.png)\n- Game Over / title screen background with a vivid Indian sunset sky over a straight highway (gameover-bg.dim_1920x1080.png)\n- Mandala decorative border tile for UI panels (mandala-border.dim_256x256.png)\n- Royal Enfield Bullet-style motorcycle side-view illustration (bike-bullet.dim_512x256.png)\n- Sport street motorcycle side-view illustration (bike-sport.dim_512x256.png)\n- Scooter side-view illustration (bike-scooter.dim_512x256.png)\n- Auto-rickshaw side-view illustration for traffic (traffic-rickshaw.dim_256x256.png)\n- Colorful Indian truck side-view illustration for traffic (traffic-truck.dim_512x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-3d-bike-driving-game-using-react-three-fiber-with-a-third-person-camera-that-follows-the-player-s-motorcycle-along-an-indian-themed-road-environment-the-road-should-be-a-long-forward-scrolling-highway-with-lane-markings-roadside-elements-such-as-trees-buildings-chai-stalls-and-billboard-signs-evoking-an-indian-setting",
+      "title": "Create a 3D bike driving game using React Three Fiber with a third-person camera that follows the player's motorcycle along an Indian-themed road environment. The road should be a long, forward-scrolling highway with lane markings, roadside elements such as trees, buildings, chai stalls, and billboard signs evoking an Indian setting.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-realistic-motorcycle-controls-accelerate-w-up-arrow-brake-s-down-arrow-steer-left-a-left-arrow-and-steer-right-d-right-arrow-the-bike-should-lean-visually-when-turning-on-mobile-add-on-screen-touch-buttons-for-the-same-controls",
+      "title": "Implement realistic motorcycle controls: accelerate (W / Up Arrow), brake (S / Down Arrow), steer left (A / Left Arrow), and steer right (D / Right Arrow). The bike should lean visually when turning. On mobile, add on-screen touch buttons for the same controls.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-ai-traffic-vehicles-auto-rickshaws-trucks-and-cars-driving-in-the-same-and-opposite-lanes-the-player-must-dodge-traffic-on-collision-the-bike-slows-down-and-the-screen-shows-a-brief-impact-flash-effect",
+      "title": "Add AI traffic vehicles (auto-rickshaws, trucks, and cars) driving in the same and opposite lanes. The player must dodge traffic. On collision, the bike slows down and the screen shows a brief impact flash effect.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-hud-showing-current-speed-km-h-distance-traveled-km-and-a-live-score-that-increases-with-distance-and-near-misses-show-a-game-over-screen-with-final-score-and-a-restart-button-when-the-player-s-health-reaches-zero-after-multiple-collisions",
+      "title": "Implement a HUD showing current speed (km/h), distance traveled (km), and a live score that increases with distance and near-misses. Show a 'Game Over' screen with final score and a 'Restart' button when the player's health reaches zero after multiple collisions.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-bike-selection-screen-before-the-game-starts-offering-at-least-three-distinct-motorcycle-options-e-g-royal-enfield-bullet-style-sport-bike-and-scooter-each-bike-should-have-different-speed-and-handling-stats-displayed-on-the-selection-card",
+      "title": "Add a bike selection screen before the game starts, offering at least three distinct motorcycle options (e.g., Royal Enfield Bullet style, sport bike, and scooter). Each bike should have different speed and handling stats displayed on the selection card.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-persist-each-player-s-high-score-on-the-backend-so-it-survives-page-refreshes-provide-a-simple-leaderboard-showing-the-top-10-scores-with-the-player-s-chosen-nickname",
+      "title": "Persist each player's high score on the backend so it survives page refreshes. Provide a simple leaderboard showing the top 10 scores with the player's chosen nickname.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-vibrant-sun-baked-indian-aesthetic-throughout-the-ui-warm-saffron-dusty-terracotta-and-cream-color-palette-bold-hindi-inspired-decorative-typography-for-headings-and-subtle-paisley-mandala-border-accents-on-menus-and-hud-panels-enforce-this-theme-consistently-across-the-bike-selection-screen-hud-leaderboard-and-game-over-screen",
+      "title": "Apply a vibrant, sun-baked Indian aesthetic throughout the UI: warm saffron, dusty terracotta, and cream color palette, bold Hindi-inspired decorative typography for headings, and subtle paisley/mandala border accents on menus and HUD panels. Enforce this theme consistently across the bike selection screen, HUD, leaderboard, and Game Over screen.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "3D Indian bike riding gameplay with realistic bike controls",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Indian-themed environments and roads with traffic",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Multiple bike options to choose and ride",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "3d",
+  "projectName": "Indian Bike Driving 3D",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
